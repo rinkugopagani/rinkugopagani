@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Destination</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="loginPage">
+        <div class="login-box">
+            <div id="sign-in-form">
+                <h2>Login to Travel Destination</h2>
+                <input type="text" id="username" placeholder="Username">
+                <input type="password" id="password" placeholder="Password">
+                <div style="margin:10px 0; text-align:left;">
+                    <input type="checkbox" id="rememberMe"> Remember Me
+                </div>
+                <button onclick="login()">LOGIN</button>
+                <p style="margin-top:10px;"><a href="#" onclick="forgotPassword()">Forgot Password?</a></p>
+            </div>
+
+
+            <div id="sign-up-form" style="display:none;">
+                <h2>Create a New Account</h2>
+                <input type="text" id="new-username" placeholder="New Username">
+                <input type="password" id="new-password" placeholder="New Password">
+                <button onclick="signup()">Login</button>
+                <p style="margin-top:10px;"><a href="#" onclick="showSignIn()">Already have an account? Sign In</a></p>
+            </div>
+            <div class="tab-buttons">
+                <button class="tab active" onclick="showSignIn()">Sign In</button>
+                <button class="tab" onclick="showSignUp()">Sign Up</button>
+            </div>
+        </div>
+    </div>
+    <div id="mainContent">
+        <nav class="navbar">
+            <div class="logo">🌎 Travel Destination</div>
+            <div class="menu">
+                <a href="#" class="nav-link" onclick="switchTab('home')">Home</a>
+                <a href="#" class="nav-link" onclick="switchTab('indian')">Indian Places</a>
+                <a href="#" class="nav-link" onclick="switchTab('global')">Global Places</a>
+                <a href="#" class="nav-link" onclick="switchTab('favorites')">User Favorites</a>
+                <a href="#" class="nav-link" onclick="switchTab('about')">About Us</a>
+            </div>
+        </nav>
+
+        <div id="home" class="section active" style="display: block;">
+
+        </div>
+
+        <div id="indian" class="section">
+            <div class="card">
+                <img src="TAJ.jpg" alt="Taj Mahal, Agra">
+                <div class="card-content">
+                    <strong>Taj Mahal, Agra</strong>
+                    <p class="desc">A symbol of love and one of the Seven Wonders of the World.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Taj Mahal, Agra', 'TAJ.jpg', 'A symbol of love and one of the Seven Wonders of the World.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="jaipur.jpg" alt="Jaipur, Rajasthan">
+                <div class="card-content">
+                    <strong>Jaipur, Rajasthan</strong>
+                    <p class="desc">The Pink City known for its palaces and forts.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Jaipur, Rajasthan', 'jaipur.jpg', 'The Pink City known for its palaces and forts.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="kashi.jpg" alt="Varanasi, Uttar Pradesh">
+                <div class="card-content">
+                    <strong>Varanasi, Uttar Pradesh</strong>
+                    <p class="desc">The spiritual capital of India along the Ganges River.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Varanasi, Uttar Pradesh', 'kashi.jpg', 'The spiritual capital of India along the Ganges River.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="kerala.jpg" alt="Kerala">
+                <div class="card-content">
+                    <strong>Kerala</strong>
+                    <p class="desc">God&apos;s Own Country with beautiful backwaters.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Kerala', 'kerala.jpg', 'God&apos;s Own Country with beautiful backwaters.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="hampi.jpg" alt="Hampi, Karnataka">
+                <div class="card-content">
+                    <strong>Hampi,Karnataka</strong>
+                    <p class="desc"> A UNESCO World Heritage Site with ancient ruins</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Hampi,Karnataka', 'hampi.jpg', 'A UNESCO World Heritage Site with ancient ruins.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="goa.jpg" alt="Goa Beaches">
+                <div class="card-content">
+                    <strong>Goa Beaches</strong>
+                    <p class="desc">Famous for nightlife,beaches,and Portuguese heritage.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Goa Beaches', 'goa.jpg', 'Famous for nightlife,beaches,and Portuguese heritage.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="darjeeling.jpg" alt="Darjeeling, West Bengal">
+                <div class="card-content">
+                    <strong>Darjeeling, West Bengal</strong>
+                    <p class="desc">Renowned for tea, toy train, and Himalayan views.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Darjeeling,West Bengal', 'darjeeling.jpg', 'Renowned for tea, toy train, and Himalayan views.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="rishikesh.jpg" alt="Rishikesh, Uttarakhand">
+                <div class="card-content">
+                    <strong>Rishikesh, Uttarakhand</strong>
+                    <p class="desc">Yoga capital of the world and a spiritual center.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Rishikesh, Uttarakhand', 'rishikesh.jpg', 'Yoga capital of the world and a spiritual center.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="amritsar.jpg" alt="Amritsar, Punjab">
+                <div class="card-content">
+                    <strong>Amritsar, Punjab</strong>
+                    <p class="desc">Home to the Golden Temple.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Amritsar, Punjab', 'amritsar.jpg', 'Home to the Golden Temple.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="mumbai.jpg" alt="Mumbai, Maharashtra">
+                <div class="card-content">
+                    <strong>Mumbai, Maharashtra</strong>
+                    <p class="desc">The bustling heart of India, home to Bollywood, the Gateway of India, and Marine Drive.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Mumbai, Maharashtra', 'mumbai.jpg', 'The bustling heart of India, home to Bollywood, the Gateway of India, and Marine Drive.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="delhi.jpg" alt="Delhi">
+                <div class="card-content">
+                    <strong>Delhi</strong>
+                    <p class="desc">The capital city blending history and modernity.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Delhi', 'delhi.jpg', 'The capital city blending history and modernity.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="mysore.jpg" alt="Mysore, Karnataka">
+                <div class="card-content">
+                    <strong>Mysore, Karnataka</strong>
+                    <p class="desc">Known for the Mysore Palace and Dussehra Festival</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Mysore, Karnataka', 'mysore.jpg', 'Known for the Mysore Palace and Dussehra Festival')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="ooty.jpg" alt="Ooty, Tamil Nadu">
+                <div class="card-content">
+                    <strong>Ooty, Tamil Nadu</strong>
+                    <p class="desc">The Queen of Hill Stations.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Ooty, Tamil Nadu', 'ooty.jpg', 'The Queen of Hill Stations.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="udaipur.jpg" alt="Udaipur, Rajasthan">
+                <div class="card-content">
+                    <strong>Udaipur, Rajasthan</strong>
+                    <p class="desc">The City of Lakes with majestic palaces.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Udaipur, Rajasthan', 'udaipur.jpg', 'The City of Lakes with majestic palaces.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="kolkata.jpg" alt="Kolkata, West Bengal">
+                <div class="card-content">
+                    <strong>Kolkata, West Bengal</strong>
+                    <p class="desc">Cultural capital of India with colonial charm.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Kolkata, West Bengal', 'Kolkata.jpg', 'Cultural capital of India with colonial charm.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="shimla.jpg" alt="Shimla, Himachal Pradesh">
+                <div class="card-content">
+                    <strong>Shimla, Himachal Pradesh</strong>
+                    <p class="desc">A popular hill station with colonial architecture.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Shimla, Himachal Pradesh', 'shimla.jpg', 'A popular hill station with colonial architecture.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="jaisalmer.jpg" alt="Jaisalmer, Rajasthan">
+                <div class="card-content">
+                    <strong>Jaisalmer, Rajasthan</strong>
+                    <p class="desc">The Golden City with desert forts.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Jaisalmer, Rajasthan', 'jaisalmer.jpg', 'The Golden City with desert forts.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="sikkim.jpg" alt="Sikkim">
+                <div class="card-content">
+                    <strong>Sikkim</strong>
+                    <p class="desc">A Himalayan state with beautiful monasteries.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Sikkim', 'sikkim.jpg', 'A Himalayan state with beautiful monasteries.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="tirupati.jpg" alt="Tirupati, Andhra Pradesh">
+                <div class="card-content">
+                    <strong>Tirupati, Andhra Pradesh</strong>
+                    <p class="desc">A sacred pilgrimage city known for the Tirumala Venkateswara Temple.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Tirupati, Andhra Pradesh', 'tirupati.jpg', 'A sacred pilgrimage city known for the Tirumala Venkateswara Temple.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="andaman.jpg" alt="Andaman & Nicobar Islands">
+                <div class="card-content">
+                    <strong>Andaman & Nicobar Islands</strong>
+                    <p class="desc">Tropical paradise with crystal-clear waters and white sand beaches.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Andaman & Nicobar Islands', 'andaman.jpg', 'Tropical paradise with crystal-clear waters and white sand beaches.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="pondicherry.jpg" alt="Pondicherry, Tamil Nadu">
+                <div class="card-content">
+                    <strong>Pondicherry, Tamil Nadu</strong>
+                    <p class="desc">A coastal town known for French colonial architecture and serene beaches.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Pondicherry, Tamil Nadu', 'pondicherry.jpg', 'A coastal town known for French colonial architecture and serene beaches.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="manali.jpg" alt="manali, Himachal Pradesh">
+                <div class="card-content">
+                    <strong>Manali , Himachal Pradesh</strong>
+                    <p class="desc">A picturesque hill station, perfect for snow adventures, trekking, and honeymooners.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'manali, Himachal Pradesh', 'manali.jpg', 'A picturesque hill station, perfect for snow adventures, trekking, and honeymooners.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="munnar.jpg" alt="Munnar , Kerala">
+                <div class="card-content">
+                    <strong>Munnar , Kerala</strong>
+                    <p class="desc">A dreamy land of sprawling tea plantations, misty hills, and exotic wildlife.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Munnar , Kerala', 'munnar.jpg', 'A dreamy land of sprawling tea plantations, misty hills, and exotic wildlife.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="Ranthambore.jpg" alt="Ranthambore National Park , Rajasthan">
+                <div class="card-content">
+                    <strong>Ranthambore National Park , Rajasthan</strong>
+                    <p class="desc">A premier wildlife sanctuary where you can spot majestic Bengal tigers in their natural habitat.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Ranthambore National Park , Rajasthan', 'Ranthambore.jpg', 'A premier wildlife sanctuary where you can spot majestic Bengal tigers in their natural habitat.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="kaziranga.jpg" alt="Kaziranga National Park , Assam">
+                <div class="card-content">
+                    <strong>Kaziranga National Park , Assam</strong>
+                    <p class="desc">A UNESCO World Heritage Site, famous for its one-horned rhinoceroses and lush green wetlands.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Kaziranga National Park , Assam', 'Kaziranga.jpg', 'A UNESCO World Heritage Site, famous for its one-horned rhinoceroses and lush green wetlands.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="Jim Corbett .jpg" alt="Jim Corbett National Park , Uttarakhand">
+                <div class="card-content">
+                    <strong>Jim Corbett National Park , Uttarakhand</strong>
+                    <p class="desc">India's oldest national park, offering thrilling tiger safaris and dense forest landscapes.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Jim Corbett National Park , Uttarakhand', 'jim Corbett .jpg', 'Indias oldest national park, offering thrilling tiger safaris and dense forest landscapes.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="spiti.jpg" alt="Spiti Valley , Himachal Pradesh">
+                <div class="card-content">
+                    <strong>Spiti Valley ,  Himachal Pradesh</strong>
+                    <p class="desc">A high-altitude desert paradise offering rugged adventures, monasteries, and surreal landscapes</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Spiti Valley , Himachal Pradesh', 'spiti.jpg', 'A high-altitude desert paradise offering rugged adventures, monasteries, and surreal landscapes.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="bangalore.jpg" alt="Bangalore , Silicon Valley of India">
+                <div class="card-content">
+                    <strong>Bangalore , Silicon Valley of India</strong>
+                    <p class="desc">A tech hub known for its pleasant weather, lively pubs, and beautiful gardens.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Bangalore , Silicon Valley of India', 'bangalore.jpg', 'A tech hub known for its pleasant weather, lively pubs, and beautiful gardens.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="biryani.jpg" alt="Hyderabad , Charminar, biryani heaven">
+                <div class="card-content">
+                    <strong>Hyderabad , Charminar, biryani heaven</strong>
+                    <p class="desc">A historic city of pearls and palaces, celebrated for its mouth-watering biryani.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Hyderabad , Charminar, biryani heaven', 'biryani.jpg', 'A historic city of pearls and palaces, celebrated for its mouth-watering biryani.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="chennai.jpg" alt="Chennai , Marina Beach, cultural capital">
+                <div class="card-content">
+                    <strong>Chennai , Marina Beach, cultural capital</strong>
+                    <p class="desc">A coastal metropolis rich in tradition, temples, and the second-longest urban beach in the world.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Chennai , Marina Beach, cultural capital', 'chennai.jpg', 'A coastal metropolis rich in tradition, temples, and the second-longest urban beach in the world.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="tawang.jpeg" alt="Tawang Monastery , Arunachal Pradesh">
+                <div class="card-content">
+                    <strong>Tawang Monastery , Arunachal Pradesh</strong>
+                    <p class="desc">The largest monastery in India, nestled in the Himalayas, offering peace and spiritual charm.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Tawang Monastery , Arunachal Pradesh', 'tawang.jpeg', 'The largest monastery in India, nestled in the Himalayas, offering peace and spiritual charm.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="kutch.webp" alt="Kutch , Gujarat (White Desert Festival)">
+                <div class="card-content">
+                    <strong>Kutch , Gujarat (White Desert Festival)</strong>
+                    <p class="desc">A surreal white salt desert that hosts the colorful Rann Utsav festival.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Kutch , Gujarat (White Desert Festival)', 'kutch.webp', 'A surreal white salt desert that hosts the colorful Rann Utsav festival.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="konark.webp" alt="Konark Sun Temple ,Odisha">
+                <div class="card-content">
+                    <strong>Konark Sun Temple ,Odisha</strong>
+                    <p class="desc">A UNESCO World Heritage Site, an architectural marvel shaped like a giant stone chariot.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Konark Sun Temple ,Odisha', 'konark.webp', 'A UNESCO World Heritage Site, an architectural marvel shaped like a giant stone chariot.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="sanchi.jpg" alt="Sanchi Stupa , Madhya Pradesh">
+                <div class="card-content">
+                    <strong>Sanchi Stupa , Madhya Pradesh</strong>
+                    <p class="desc">One of the oldest stone structures in India, a major Buddhist pilgrimage site.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Sanchi Stupa , Madhya Pradesh', 'sanchi.jpg', 'One of the oldest stone structures in India, a major Buddhist pilgrimage site.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="ajanta.jpg" alt="Ajanta and Ellora Caves , Maharashtra">
+                <div class="card-content">
+                    <strong>Ajanta and Ellora Caves , Maharashtra</strong>
+                    <p class="desc">Ancient rock-cut caves adorned with Buddhist, Hindu, and Jain sculptures and paintings.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Ajanta and Ellora Caves , Maharashtra', 'ajanta.jpg', 'Ancient rock-cut caves adorned with Buddhist, Hindu, and Jain sculptures and paintings.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="meenakshi.avif" alt="Meenakshi Temple , Madurai, Tamil Nadu">
+                <div class="card-content">
+                    <strong>Meenakshi Temple , Madurai, Tamil Nadu</strong>
+                    <p class="desc">A vibrant, colorful Dravidian-style temple dedicated to Goddess Meenakshi.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Meenakshi Temple , Madurai, Tamil Nadu', 'meenakshi.avif', 'A vibrant, colorful Dravidian-style temple dedicated to Goddess Meenakshi.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="chittorgarh.jpeg" alt="Chittorgarh Fort , Rajasthan">
+                <div class="card-content">
+                    <strong>Chittorgarh Fort , Rajasthan</strong>
+                    <p class="desc">The largest fort in India, symbolizing Rajput pride and valor.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Chittorgarh Fort , Rajasthan', 'chittorgarh.jpeg', 'The largest fort in India, symbolizing Rajput pride and valor.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="ladakh.webp" alt="Leh-Ladakh , Jammu & Kashmir">
+                <div class="card-content">
+                    <strong>Leh-Ladakh , Jammu & Kashmir</strong>
+                    <p class="desc">An adventurer's paradise with high mountain passes and stunning Buddhist monasteries.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Leh-Ladakh , Jammu & Kashmir', 'Ladakh.webp', 'An adventurer&apos;s paradise with high mountain passes and stunning Buddhist monasteries.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card ">
+                <img src="lonavala.jpg " alt="Lonavala , Maharashtra ">
+                <div class="card-content ">
+                    <strong>Lonavala , Maharashtra</strong>
+                    <p class="desc ">A popular hill station near Mumbai, famous for lush greenery, caves, and waterfalls.</p>
+                    <div class="add-form ">
+                        <button onclick="addToFavorites(event, 'Lonavala , Maharashtra', 'lonavala.jpg', 'A popular hill station near Mumbai, famous for lush greenery, caves, and waterfalls.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card ">
+                <img src="mahabaleshwar.jpeg " alt="Mahabaleshwar , Maharashtra ">
+                <div class="card-content ">
+                    <strong>Mahabaleshwar , Maharashtra</strong>
+                    <p class="desc ">Known for its scenic viewpoints, strawberries, and misty hills.</p>
+                    <div class="add-form ">
+                        <button onclick="addToFavorites(event, 'Mahabaleshwar , Maharashtra', 'mahabaleshwar.jpeg', 'Known for its scenic viewpoints, strawberries, and misty hills.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card ">
+                <img src="varkala.jpg " alt="Varkala , Kerala ">
+                <div class="card-content ">
+                    <strong>Varkala , Kerala</strong>
+                    <p class="desc ">A peaceful beach town with dramatic cliffs and a laid-back vibe.</p>
+                    <div class="add-form ">
+                        <button onclick="addToFavorites(event, 'Varkala , Kerala', 'varkala.jpg', 'A peaceful beach town with dramatic cliffs and a laid-back vibe.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card ">
+                <img src="gokarna.jpg " alt="Gokarna ,Karnataka ">
+                <div class="card-content ">
+                    <strong>Gokarna ,Karnataka</strong>
+                    <p class="desc ">A quieter alternative to Goa, famous for pristine beaches and temples.</p>
+                    <div class="add-form ">
+                        <button onclick="addToFavorites(event, 'Gokarna ,Karnataka', 'gokarna.jpg', 'A quieter alternative to Goa, famous for pristine beaches and temples.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card ">
+                <img src="puri.jpeg " alt="Puri , Odisha ">
+                <div class="card-content ">
+                    <strong>Puri , Odisha</strong>
+                    <p class="desc ">Known for Jagannath Temple and golden beaches along the Bay of Bengal.</p>
+                    <div class="add-form ">
+                        <button onclick="addToFavorites(event, 'Puri , Odisha', 'puri.jpeg', 'Known for Jagannath Temple and golden beaches along the Bay of Bengal.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card ">
+                <img src="Kanyakumari.avif " alt="Kanyakumari, Tamil Nadu ">
+                <div class="card-content ">
+                    <strong>Kanyakumari, Tamil Nadu</strong>
+                    <p class="desc ">The southernmost tip of India, where the Arabian Sea, Bay of Bengal, and Indian Ocean meet. Famous for its beautiful sunrise and sunset views, Vivekananda Rock Memorial, and spiritual significance.</p>
+                    <div class="add-form ">
+                        <button onclick="addToFavorites(event, 'Kanyakumari, Tamil Nadu', 'Kanyakumari.avif', 'The southernmost point of India, known for its stunning sunrises, sunsets, and the Vivekananda Rock Memorial.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card ">
+                <img src="Dhanushkodi.webp " alt="Dhanushkodi ,Tamil Nadu ">
+                <div class="card-content ">
+                    <strong>Dhanushkodi ,Tamil Nadu</strong>
+                    <p class="desc ">A ghost town at the tip of India, with surreal landscapes and spiritual significance.</p>
+                    <div class="add-form ">
+                        <button onclick="addToFavorites(event, 'Dhanushkodi ,Tamil Nadu', 'Dhanushkodi.webp', 'A ghost town at the tip of India, with surreal landscapes and spiritual significance.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card ">
+                <img src="ahmedabad.jpg " alt="Ahmedabad Gujarat ">
+                <div class="card-content ">
+                    <strong>Ahmedabad  Gujarat</strong>
+                    <p class="desc ">India's first UNESCO World Heritage City, rich in culture, food, and textiles.</p>
+                    <div class="add-form ">
+                        <button onclick="addToFavorites(event, 'Ahmedabad Gujarat', 'ahmedabad.jpg', 'Indias first UNESCO World Heritage City, rich in culture, food, and textiles.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card ">
+                <img src="lucknow.jpg " alt="Lucknow , Uttar Pradesh ">
+                <div class="card-content ">
+                    <strong>Lucknow , Uttar Pradesh</strong>
+                    <p class="desc ">The City of Nawabs, famous for Mughlai cuisine, chikankari embroidery, and historical architecture.</p>
+                    <div class="add-form ">
+                        <button onclick="addToFavorites(event, 'Lucknow , Uttar Pradesh', 'lucknow.jpg', 'The City of Nawabs, famous for Mughlai cuisine, chikankari embroidery, and historical architecture.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card ">
+                <img src="surat.avif " alt="Surat , Gujarat ">
+                <div class="card-content ">
+                    <strong>Surat , Gujarat</strong>
+                    <p class="desc ">The diamond capital of the world and a rapidly growing modern city.</p>
+                    <div class="add-form ">
+                        <button onclick="addToFavorites(event, 'Surat , Gujarat', 'surat.avif', 'The diamond capital of the world and a rapidly growing modern city.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card ">
+                <img src="dehradun.jpg " alt="Dehradun , Uttarakhand ">
+                <div class="card-content ">
+                    <strong>Dehradun , Uttarakhand</strong>
+                    <p class="desc ">A beautiful valley town, gateway to Mussoorie and Rishikesh.</p>
+                    <div class="add-form ">
+                        <button onclick="addToFavorites(event, 'Dehradun , Uttarakhand', 'dehradun.jpg', 'A beautiful valley town, gateway to Mussoorie and Rishikesh.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card ">
+                <img src="indore.jpg " alt="Indore , Madhya Pradesh ">
+                <div class="card-content ">
+                    <strong>Indore , Madhya Pradesh</strong>
+                    <p class="desc ">A clean, vibrant city known for its delicious street food and heritage sites.</p>
+                    <div class="add-form ">
+                        <button onclick="addToFavorites(event, 'Indore , Madhya Pradesh', 'indore.jpg', 'A clean, vibrant city known for its delicious street food and heritage sites.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card ">
+                <img src="chopta.webp " alt="Chopta , Uttarakhand ">
+                <div class="card-content ">
+                    <strong>Chopta , Uttarakhand</strong>
+                    <p class="desc ">Mini Switzerland of India, base for the Tungnath trek and panoramic Himalayan views.</p>
+                    <div class="add-form ">
+                        <button onclick="addToFavorites(event, 'Chopta , Uttarakhand', 'chopta.webp', 'Mini Switzerland of India, base for the Tungnath trek and panoramic Himalayan views.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card ">
+                <img src="majuli.jpg " alt=" ">
+                <div class="card-content ">
+                    <strong>Majuli Island , Assam</strong>
+                    <p class="desc ">World's largest river island, a peaceful, spiritual retreat on the Brahmaputra River.</p>
+                    <div class="add-form ">
+                        <button onclick="addToFavorites(event, 'Majuli Island , Assam', 'majuli.jpg', 'Worlds largest river island, a peaceful, spiritual retreat on the Brahmaputra River.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card ">
+                <img src="hyd.jpg " alt="Hyderabad,Telangana ">
+                <div class="card-content ">
+                    <strong>Hyderabad,Telangana</strong>
+                    <p class="desc ">Known for Charminar, Golconda Fort, Ramoji Film City, and Hussain Sagar Lake.</p>
+                    <div class="add-form ">
+                        <button onclick="addToFavorites(event, 'Hyderabad, Telangana', 'hyd.jpg', 'Known for Charminar, Golconda Fort, Ramoji Film City, and Hussain Sagar Lake.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card ">
+                <img src="bhongir.jpg " alt="Bhongir Fort, Telangana ">
+                <div class="card-content ">
+                    <strong>Bhongir Fort, Telangana</strong>
+                    <p class="desc ">Known for the Lakshmi Narasimha Swamy Temple and its peaceful hilltop surroundings.</p>
+                    <div class="add-form ">
+                        <button onclick="addToFavorites(event, 'Bhongir, Telangana', 'bhongir.jpg', 'Known for the Lakshmi Narasimha Swamy Temple and its peaceful hilltop surroundings.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card ">
+                <img src="ygt.jpg " alt="Yadadgirigutta, Telangana ">
+                <div class="card-content ">
+                    <strong>Yadadgirigutta, Telangana</strong>
+                    <p class="desc ">Known for the Lakshmi Narasimha Swamy Temple and its peaceful hilltop surroundings.</p>
+                    <div class="add-form ">
+                        <button onclick="addToFavorites(event, 'Yadadgirigutta, Telangana', 'ygt.jpg', 'Known for the Lakshmi Narasimha Swamy Temple and its peaceful hilltop surroundings.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card ">
+                <img src="warangal.jpeg " alt="Warangal, Telangana ">
+                <div class="card-content ">
+                    <strong>Warangal, Telangana</strong>
+                    <p class="desc ">Known for Warangal Fort, Thousand Pillar Temple, and the beautiful Bhadrakali Temple.</p>
+                    <div class="add-form ">
+                        <button onclick="addToFavorites(event, 'Warangal, Telangana', 'warangal.jpeg', 'Known for Warangal Fort, Thousand Pillar Temple, and the beautiful Bhadrakali Temple.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card ">
+                <img src="sagar.webp " alt="Nagarjuna Sagar ">
+                <div class="card-content ">
+                    <strong>Nagarjuna Sagar</strong>
+                    <p class="desc ">Known for Nagarjuna Sagar Dam and Ethipothala Waterfalls.</p>
+                    <div class="add-form ">
+                        <button onclick="addToFavorites(event, 'Nagarjuna Sagar', 'sagar.webp', 'Known for Nagarjuna Sagar Dam and Ethipothala Waterfalls.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card ">
+                <img src="medak.jpg " alt="Medak,Telangana ">
+                <div class="card-content ">
+                    <strong>Medak,Telangana</strong>
+                    <p class="desc ">Known for Medak Cathedral (one of the largest churches in Asia) and Medak Fort.</p>
+                    <div class="add-form ">
+                        <button onclick="addToFavorites(event, 'Medak, Telangana', 'medak.jpg', 'Known for Medak Cathedral (one of the largest churches in Asia) and Medak Fort.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card ">
+                <img src="basara.jpg " alt="Basara,Telangana ">
+                <div class="card-content ">
+                    <strong>Basara,Telangana</strong>
+                    <p class="desc ">Famous for the Gnana Saraswati Temple, dedicated to the Goddess of Knowledge.</p>
+                    <div class="add-form ">
+                        <button onclick="addToFavorites(event, 'Basara, Telangana', 'basara.jpg', 'Famous for the Gnana Saraswati Temple, dedicated to the Goddess of Knowledge.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card ">
+                <img src="bogatha.jpg " alt="Bogatha Waterfalls, Telangana ">
+                <div class="card-content ">
+                    <strong>Bogatha Waterfalls,Telangana</strong>
+                    <p class="desc ">Known as the "Niagara of Telangana, " it's a stunning waterfall surrounded by dense forests.</p>
+                    <div class="add-form ">
+                        <button onclick="addToFavorites(event, 'Bogatha Waterfalls, Telangana', 'bogatha.jpg', 'Known as the Niagara of Telangana its a stunning waterfall surrounded by dense forests.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card ">
+                <img src="vizag.avif " alt="Visakhapatnam (Vizag),Andhra Pradesh ">
+                <div class="card-content ">
+                    <strong>Visakhapatnam (Vizag),Andhra Pradesh</strong>
+                    <p class="desc ">Known for beautiful beaches like RK Beach, Kailasagiri Hill Park, and Araku Valley nearby.</p>
+                    <div class="add-form ">
+                        <button onclick="addToFavorites(event, 'Visakhapatnam (Vizag),Andhra Pradesh', 'vizag.avif', 'Known for beautiful beaches like RK Beach, Kailasagiri Hill Park, and Araku Valley nearby.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card ">
+                <img src="Araku.jpg " alt="Araku Valley,Andhra Pradesh ">
+                <div class="card-content ">
+                    <strong>Araku Valley,Andhra Pradesh</strong>
+                    <p class="desc ">A scenic hill station with coffee plantations, tribal culture, and waterfalls.</p>
+                    <div class="add-form ">
+                        <button onclick="addToFavorites(event, 'Araku Valley,Andhra Pradesh', 'Araku.jpg', 'A scenic hill station with coffee plantations, tribal culture, and waterfalls.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card ">
+                <img src="srisailam.webp " alt="Srisailam,Andhra Pradesh ">
+                <div class="card-content ">
+                    <strong>Srisailam,Andhra Pradesh</strong>
+                    <p class="desc ">Known for Mallikarjuna Jyotirlinga Temple and the Srisailam Dam.</p>
+                    <div class="add-form ">
+                        <button onclick="addToFavorites(event, 'Srisailam,Andhra Pradesh', 'srisailam.webp', 'Known for Mallikarjuna Jyotirlinga Temple and the Srisailam Dam.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card ">
+                <img src="lepakshi.jpg " alt="Lepakshi,Andhra Pradesh ">
+                <div class="card-content ">
+                    <strong>Lepakshi,Andhra Pradesh</strong>
+                    <p class="desc ">Famous for Veerabhadra Temple and the hanging pillar marvel.</p>
+                    <div class="add-form ">
+                        <button onclick="addToFavorites(event, 'Lepakshi,Andhra Pradesh', 'lepakshi.jpg', 'Famous for Veerabhadra Temple and the hanging pillar marvel.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="global" class="section">
+            <div class="card">
+                <img src="paris.jpg" alt="Paris, France">
+                <div class="card-content">
+                    <strong>Paris, France</strong>
+                    <p class="desc">The City of Light known for the Eiffel Tower.</p>
+                    <div class="add-form">
+                        <button onclick="addToFavorites(event, 'Paris, France', 'paris.jpg', 'The City of Light known for the Eiffel Tower.')">Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="nyc.jpg" alt="New York City, USA">
+                <div class="card-content">
+                    <strong>New York City, USA</strong>
+                    <p class="desc">The city that never sleeps, with iconic landmarks.</p>
+                    <div class="add-form">
+                        <button onclick='addToFavorites(event, "New York City, USA", "nyc.jpg", "The city that never sleeps, with iconic landmarks.")'>Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="tokyo.jpg" alt="Tokyo, Japan">
+                <div class="card-content">
+                    <strong>Tokyo, Japan</strong>
+                    <p class="desc">A mix of tradition and futuristic innovation.</p>
+                    <div class="add-form">
+                        <button onclick='addToFavorites(event, "Tokyo, Japan", "tokyo.jpg", "A mix of tradition and futuristic innovation.")'>Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="rome.jpg" alt="Rome, Italy">
+                <div class="card-content">
+                    <strong>Rome, Italy</strong>
+                    <p class="desc">The Eternal City with ancient ruins.</p>
+                    <div class="add-form">
+                        <button onclick='addToFavorites(event, "Rome, Italy", "rome.jpg", "The Eternal City with ancient ruins.")'>Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="sydney.jpg" alt="Sydney, Australia">
+                <div class="card-content">
+                    <strong>Sydney, Australia</strong>
+                    <p class="desc">Home to the Opera House and stunning beaches.</p>
+                    <div class="add-form">
+                        <button onclick='addToFavorites(event, "Sydney, Australia", "sydney.jpg", "Home to the Opera House and stunning beaches.")'>Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="capetown.jpg" alt="Cape Town, South Africa">
+                <div class="card-content">
+                    <strong>Cape Town, South Africa</strong>
+                    <p class="desc">Scenic city with Table Mountain views.</p>
+                    <div class="add-form">
+                        <button onclick='addToFavorites(event, "Cape Town, South Africa", "capetown.jpg", "Scenic city with Table Mountain views.")'>Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="brazil.jpg" alt="Rio de Janeiro, Brazil">
+                <div class="card-content">
+                    <strong>Rio de Janeiro, Brazil</strong>
+                    <p class="desc">Known for Carnival and Christ the Redeemer.</p>
+                    <div class="add-form">
+                        <button onclick='addToFavorites(event, "Rio de Janeiro, Brazil", "brazil.jpg", "Known for Carnival and Christ the Redeemer.")'>Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="london.jpg" alt="London, UK">
+                <div class="card-content">
+                    <strong>London, UK</strong>
+                    <p class="desc">Historic city with Buckingham Palace and Big Ben.</p>
+                    <div class="add-form">
+                        <button onclick='addToFavorites(event, "London, UK", "london.jpg", "Historic city with Buckingham Palace and Big Ben.")'>Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="spain.jpg" alt="Barcelona, Spain">
+                <div class="card-content">
+                    <strong>Barcelona, Spain</strong>
+                    <p class="desc">Art and architecture by Gaudí.</p>
+                    <div class="add-form">
+                        <button onclick='addToFavorites(event, "Barcelona, Spain", "spain.jpg", "Art and architecture by Gaudí.")'>Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="dubai.jpg" alt="Dubai, UAE">
+                <div class="card-content">
+                    <strong>Dubai, UAE</strong>
+                    <p class="desc">Luxury shopping, ultramodern architecture, and nightlife.</p>
+                    <div class="add-form">
+                        <button onclick='addToFavorites(event, "Dubai, UAE", "dubai.jpg", "Luxury shopping, ultramodern architecture, and nightlife.")'>Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="bangkok.jpg" alt="Bangkok, Thailand">
+                <div class="card-content">
+                    <strong>Bangkok, Thailand</strong>
+                    <p class="desc">Vibrant street life and ornate shrines.</p>
+                    <div class="add-form">
+                        <button onclick='addToFavorites(event, "Bangkok, Thailand", "bangkok.jpg", "Vibrant street life and ornate shrines.")'>Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="turkey.jpg" alt="Istanbul, Turkey">
+                <div class="card-content">
+                    <strong>Istanbul, Turkey</strong>
+                    <p class="desc">A city straddling Europe and Asia.</p>
+                    <div class="add-form">
+                        <button onclick='addToFavorites(event, "Istanbul, Turkey", "turkey.jpg", "A city straddling Europe and Asia.")'>Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="egypt.jpg" alt="Cairo, Egypt">
+                <div class="card-content">
+                    <strong>Cairo, Egypt</strong>
+                    <p class="desc">Famous for pyramids and ancient civilization.</p>
+                    <div class="add-form">
+                        <button onclick='addToFavorites(event, "Cairo, Egypt", "egypt.jpg", "Famous for pyramids and ancient civilization.")'>Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="singapore.jpg" alt="Singapore">
+                <div class="card-content">
+                    <strong>Singapore</strong>
+                    <p class="desc">A global hub of finance and clean cityscape.</p>
+                    <div class="add-form">
+                        <button onclick='addToFavorites(event, "Singapore", "singapore.jpg", "A global hub of finance and clean cityscape.")'>Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="amsterdam.jpg" alt="Amsterdam, Netherlands">
+                <div class="card-content">
+                    <strong>Amsterdam, Netherlands</strong>
+                    <p class="desc">Known for canals, museums, and cycling.</p>
+                    <div class="add-form">
+                        <button onclick='addToFavorites(event, "Amsterdam, Netherlands", "amsterdam.jpg", "Known for canals, museums, and cycling.")'>Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="italy.jpg" alt="Venice, Italy">
+                <div class="card-content">
+                    <strong>Venice, Italy</strong>
+                    <p class="desc">Romantic city built on water.</p>
+                    <div class="add-form">
+                        <button onclick='addToFavorites(event, "Venice, Italy", "italy.jpg", "Romantic city built on water.")'>Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="Prague .jpg" alt="Prague, Czech Republic">
+                <div class="card-content">
+                    <strong>Prague, Czech Republic</strong>
+                    <p class="desc">Fairytale city of spires and castles.</p>
+                    <div class="add-form">
+                        <button onclick='addToFavorites(event, "Prague, Czech Republic", "Prague .jpg", "Fairytale city of spires and castles.")'>Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="greece.jpg" alt="Santorini, Greece">
+                <div class="card-content">
+                    <strong>Santorini, Greece</strong>
+                    <p class="desc">Famous for whitewashed houses and sunsets.</p>
+                    <div class="add-form">
+                        <button onclick='addToFavorites(event, "Santorini, Greece", "greece.jpg", "Famous for whitewashed houses and sunsets.")'>Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="maldives.jpg" alt="Maldives">
+                <div class="card-content">
+                    <strong>Maldives</strong>
+                    <p class="desc">A Tropical paradise of pristine beaches, crystal-clear waters and luxurious overwater bungalows, offers the perfect getaway for relaxation and adventure.</p>
+                    <div class="add-form">
+                        <button onclick='addToFavorites(event, "Maldives", "maldives.jpg", "A Tropical paradise of pristine beaches,crystal-Clear waters and luxurious overwater bungalows, offers the perfect getaway for relaxation and adventure.")'>Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="bali.jpg" alt="Bali, Indonesia">
+                <div class="card-content">
+                    <strong>Bali, Indonesia</strong>
+                    <p class="desc">An island paradise with beaches and temples.</p>
+                    <div class="add-form">
+                        <button onclick='addToFavorites(event, "Bali, Indonesia", "bali.jpg", "An island paradise with beaches and temples.")'>Add to Favorites</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="iceland.jpg" alt="Reykjavik, Iceland">
+                <div class="card-content">
+                    <strong>Reykjavik, Iceland</strong>
+                    <p class="desc">Known for Northern Lights, hot springs, and stunning Icelandic landscapes.</p>
+                    <div class="add-form">
+                        <button onclick='addToFavorites(event, "Reykjavik, Iceland", "iceland.jpg", "Known for Northern Lights, hot springs, and stunning Icelandic landscapes.")'>Add to Favorites</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+        </div>
+
+        <div id="favorites" class="section">
+            <button class="clear-btn" onclick="clearFavorites()">Clear Favorites</button>
+        </div>
+
+
+    </div>
+
+    <div id="favorites " class="section ">
+        <button class="clear-btn " onclick="clearFavorites() ">Clear Favorites</button>
+    </div>
+    <div id="about" class="section">
+        <div style="text-align: center; padding: 40px;">
+            <h2>About Travel Destination 🌎</h2>
+            <p style="font-size: 1.1em; max-width: 800px; margin: auto; color: #555;">
+                Welcome to Travel Destination! 🚀
+                <br><br> Our mission is to inspire your next adventure by showcasing the most beautiful destinations across India and around the world. Whether you're looking for hidden gems, famous landmarks, or your personal favorites, we have curated
+                a collection just for you.
+                <br><br> Let’s Travel and make memories that last a lifetime. Happy travels! ✈️
+            </p><br><br>
+            <h2>Contact Information</h2><br>
+            <p>Address:RG Travel Destination,Opposite PVR Mall Panjagutta,Hyderabad,508115</p><br>
+            <p>Phone:+91 6302447114</p><br>
+            <p>Email:rinkugopagani@gmail.com</p>
+        </div>
+    </div>
+
+    <script src="k.js "></script>
+    </div>
+</body>
+
+</html>
